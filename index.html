@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Warszawa na strunach — lekcje gitary i śpiewu z dojazdem</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2314110F'/%3E%3Cpath d='M26 44V18l20-5v25' fill='none' stroke='%23E8A23A' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='20' cy='44' r='7' fill='%23E8A23A'/%3E%3Ccircle cx='40' cy='39' r='7' fill='%23E8A23A'/%3E%3C/svg%3E">
+<meta name="description" content="Lekcje gitary, ukulele i śpiewu z akompaniamentem z dojazdem do domu ucznia w Warszawie. Gramy to, co lubisz.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#14110F; --card:#221C18; --card2:#2A221D; --line:#3A2F28;
+  --amber:#E8A23A; --teal:#2FA39A; --terra:#B5562B; --cream:#F3E9DC; --muted:#BFB2A3;
+  --r:22px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--cream);font-family:Manrope,system-ui,sans-serif;font-size:17px;line-height:1.6;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:700;line-height:1.1;letter-spacing:-.01em}
+h2{font-size:clamp(30px,4.2vw,46px);margin-bottom:14px}
+.hand{font-family:Caveat,cursive;color:var(--amber);font-size:1.35em;font-weight:600}
+.lead{color:var(--muted);max-width:640px}
+section{padding:96px 0}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(20,17,15,.78);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.05)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:Fraunces,serif;font-weight:700;font-size:20px;text-decoration:none}
+.logo .lnote{color:var(--amber)}
+.navlinks{display:flex;gap:26px;align-items:center}
+.navlinks a{text-decoration:none;color:var(--muted);font-size:15px}
+.navlinks a:hover{color:var(--cream)}
+.lang{display:flex;gap:4px;background:var(--card);border-radius:999px;padding:4px}
+.lang button{background:none;border:0;color:var(--muted);font:600 13px Manrope;padding:6px 11px;border-radius:999px;cursor:pointer}
+.lang button.on{background:var(--amber);color:#1b130b}
+
+/* hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:110px 0 40px;overflow:hidden}
+.hero::before{content:"";position:absolute;right:-10%;top:-20%;width:900px;height:900px;background:radial-gradient(circle,rgba(232,162,58,.28) 0%,rgba(232,162,58,.08) 35%,transparent 65%);pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center;width:100%}
+.hero h1{font-size:clamp(38px,5vw,64px);margin:14px 0 20px}
+.hero h1 em{font-style:normal;color:var(--amber)}
+.hero .lead{font-size:19px;margin-bottom:30px}
+.tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
+.tag{border:1px solid var(--line);border-radius:999px;padding:7px 15px;font-size:14px;color:var(--muted)}
+.tag b{color:var(--teal);font-weight:700}
+.btns{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--amber);color:#1b130b;font-weight:700;text-decoration:none;padding:16px 28px;border-radius:999px;transition:transform .2s,box-shadow .2s;box-shadow:0 10px 30px -10px rgba(232,162,58,.6)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 16px 40px -10px rgba(232,162,58,.7)}
+.btn.ghost{background:transparent;color:var(--cream);border:1px solid var(--line);box-shadow:none}
+.price-chip{font-size:15px;color:var(--muted)}
+.price-chip b{color:var(--cream);font-size:20px}
+.hero-photo{position:relative;display:flex;justify-content:center;align-items:flex-end;height:min(78vh,720px)}
+.hero-photo img{height:100%;width:auto;object-fit:contain;position:relative;z-index:2;filter:drop-shadow(0 30px 40px rgba(0,0,0,.6));-webkit-mask-image:linear-gradient(to bottom,#000 85%,transparent);mask-image:linear-gradient(to bottom,#000 85%,transparent)}
+.hero-photo .glow{position:absolute;bottom:4%;width:80%;height:30px;background:radial-gradient(ellipse,rgba(0,0,0,.7),transparent 70%);z-index:1}
+.note{position:absolute;z-index:3;font-family:Caveat,cursive;color:var(--amber);font-size:28px;transform:rotate(-8deg)}
+.note.n1{top:8%;left:-4%}
+.note.n2{top:auto;bottom:4%;right:auto;left:-6%;color:var(--teal);transform:rotate(7deg)}
+
+/* principles */
+.grid4{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.pcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px 22px;transition:transform .25s,border-color .25s}
+.pcard:hover{transform:translateY(-4px);border-color:rgba(232,162,58,.5)}
+.pcard .ico{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:rgba(47,163,154,.14);color:var(--teal);margin-bottom:18px}
+.pcard h3{font-size:21px;margin-bottom:8px}
+.pcard p{color:var(--muted);font-size:15.5px}
+
+/* directions */
+.grid3{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:44px}
+.dcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.ph{aspect-ratio:16/9;background:repeating-linear-gradient(45deg,#1d1814 0 14px,#211b17 14px 28px);display:grid;place-items:center;text-align:center;color:#6f6254;font-size:13px;border-bottom:1px solid var(--line);padding:20px}
+.ph span{border:1px dashed #5a4c40;border-radius:12px;padding:10px 14px}
+.dcard .body{padding:24px}
+.dcard h3{font-size:24px;margin-bottom:8px}
+.dcard p{color:var(--muted);font-size:15.5px}
+
+.vnote{display:flex;gap:16px;align-items:center;margin-top:22px;background:rgba(47,163,154,.08);border:1px solid rgba(47,163,154,.35);border-radius:18px;padding:20px 24px}
+.vnote span{font-size:26px}
+.vnote p{color:var(--cream)}
+.icoph{width:46px;height:46px;border-radius:14px;border:1px dashed #5a4c40;background:rgba(255,255,255,.02);flex:0 0 46px}
+.fact .icoph{width:40px;height:40px;flex:0 0 40px}
+.hl{color:var(--amber);font-weight:700}
+.dimg{height:300px;display:flex;align-items:center;justify-content:center;padding:26px;border-bottom:1px solid var(--line);background:radial-gradient(circle at 50% 55%,rgba(232,162,58,.10),transparent 65%)}
+.dimg img{height:100%;width:auto;max-width:100%;object-fit:contain}
+.aicon{width:64px;height:64px;display:block;margin:-6px 0 14px -6px}
+.ficon{width:44px;height:44px;flex:0 0 44px}
+.vids{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+.vcard{margin:0;background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.vcard video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;background:#000}
+.vcard figcaption{padding:14px 18px;font-family:Fraunces,serif;font-size:18px}
+@media (max-width:900px){.vids{grid-template-columns:1fr;max-width:380px;margin-left:auto;margin-right:auto}}
+/* vocal split */
+.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center}
+.split .photo{position:relative;border-radius:28px;max-height:620px;background:radial-gradient(circle at 50% 30%,rgba(232,162,58,.25),transparent 60%),var(--card);overflow:hidden;aspect-ratio:4/5;display:flex;align-items:flex-end;justify-content:center}
+.split .photo img{width:100%;height:auto;-webkit-mask-image:linear-gradient(to bottom,#000 80%,transparent);mask-image:linear-gradient(to bottom,#000 80%,transparent)}
+.checks{list-style:none;margin-top:24px;display:grid;gap:14px}
+.checks li{display:flex;gap:14px;align-items:flex-start}
+.checks li::before{content:"";flex:0 0 22px;height:22px;border-radius:50%;margin-top:3px;background:var(--teal) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2314110F' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center/13px no-repeat}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px;counter-reset:s}
+.step{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.step .ph{aspect-ratio:16/9;border-radius:14px;border:0;margin-bottom:20px}
+.step .num{position:absolute;top:-16px;left:22px;width:40px;height:40px;border-radius:50%;background:var(--amber);color:#1b130b;font:700 18px Fraunces;display:grid;place-items:center}
+.step h3{font-size:21px;margin-bottom:6px}
+.step p{color:var(--muted);font-size:15.5px}
+
+/* about */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+.facts{display:grid;gap:14px}
+.fact{display:flex;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 20px}
+.fact{align-items:center}
+.fact b{font-family:Fraunces,serif;color:var(--amber);font-size:22px;min-width:70px}
+.fact span{color:var(--muted);font-size:15.5px}
+
+/* price */
+.price{background:linear-gradient(135deg,#2A1E15,#1B1512);border:1px solid rgba(232,162,58,.35);border-radius:32px;padding:56px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;position:relative;overflow:hidden}
+.price::after{content:"";position:absolute;right:-120px;top:-120px;width:380px;height:380px;background:radial-gradient(circle,rgba(232,162,58,.25),transparent 65%)}
+.big{font-family:Fraunces,serif;font-size:clamp(64px,9vw,104px);line-height:1;color:var(--amber)}
+.big small{font-size:.3em;color:var(--cream);margin-left:6px}
+.price ul{list-style:none;color:var(--muted);margin-top:18px;display:grid;gap:6px}
+.price ul li::before{content:"♪";color:var(--teal);margin-right:10px}
+
+/* contact */
+.contact{text-align:center}
+.contact .lead{margin:0 auto 34px}
+.cbtns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cbtn{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 24px;text-decoration:none;min-width:230px;transition:border-color .2s,transform .2s}
+.cbtn:hover{border-color:var(--teal);transform:translateY(-2px)}
+.cbtn svg{flex:0 0 26px;color:var(--teal)}
+.cbtn div{text-align:left}
+.cbtn small{display:block;color:var(--muted);font-size:13px}
+footer{padding:40px 0;color:#7d7064;font-size:14px;text-align:center;border-top:1px solid rgba(255,255,255,.05)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+
+/* animations */
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(var(--r0,-8deg))}50%{transform:translateY(-14px) rotate(calc(var(--r0,-8deg) + 6deg))}}
+@keyframes wobble{0%,100%{transform:rotate(7deg) scale(1)}50%{transform:rotate(3deg) scale(1.06)}}
+@keyframes rise{0%{transform:translateY(0) rotate(0);opacity:0}12%{opacity:.75}100%{transform:translateY(-110vh) rotate(40deg);opacity:0}}
+@keyframes sway{0%,100%{margin-left:0}50%{margin-left:22px}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(232,162,58,.45)}60%{box-shadow:0 0 0 14px rgba(232,162,58,0)}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes shine{to{background-position:200% center}}
+.note.n1{--r0:-8deg;animation:floaty 4.5s ease-in-out infinite;font-size:34px}
+.note.n2{animation:wobble 3.2s ease-in-out infinite}
+.hero{position:relative;overflow:hidden}
+.fly{position:absolute;bottom:-40px;font-size:24px;color:var(--amber);opacity:0;pointer-events:none;z-index:0;animation:rise linear infinite,sway 3s ease-in-out infinite}
+.fly.t{color:var(--teal)}.fly.c{color:var(--cream)}
+.hero .wrap{position:relative;z-index:1}
+.hero h1 em{background:linear-gradient(90deg,var(--amber),#F6C77A,var(--teal),var(--amber));background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+.hero .hand,.hero h1,.hero .lead,.hero .tags,.hero .btns{opacity:0;transform:translateY(22px);animation:heroIn .8s cubic-bezier(.2,.8,.2,1) forwards}
+.hero h1{animation-delay:.12s}.hero .lead{animation-delay:.24s}.hero .tags{animation-delay:.36s}.hero .btns{animation-delay:.48s}
+.hero-photo img{animation:photoIn 1.1s cubic-bezier(.2,.8,.2,1) both}
+@keyframes heroIn{to{opacity:1;transform:none}}
+@keyframes photoIn{from{opacity:0;transform:translateX(40px) scale(.96)}to{opacity:1;transform:none}}
+.btn{animation:pulse 2.6s ease-out 1.5s infinite}
+.fact.rv{transform:translateX(-36px)}
+.pcard.rv{transform:translateY(40px) scale(.94)}
+.dcard.rv:nth-child(1),.split .photo.rv{transform:translateX(-50px)}
+.dcard.rv:nth-child(2){transform:translateX(50px)}
+.vcard.rv{transform:translateY(50px) rotate(-2deg)}
+.vcard.rv:nth-child(2){transform:translateY(70px)}
+.vcard.rv:nth-child(3){transform:translateY(50px) rotate(2deg)}
+.price.rv{transform:scale(.94)}
+.rv.in{opacity:1;transform:none}
+.rv{transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.pcard.in .aicon{animation:bob 3s ease-in-out infinite}
+.pcard:nth-child(2n).in .aicon{animation-delay:.6s}
+.pcard:nth-child(3n).in .aicon{animation-delay:1.2s}
+.vcard{transition:transform .3s,border-color .3s}
+.vcard.in:hover{transform:translateY(-6px);border-color:rgba(232,162,58,.5)}
+.fact{transition:transform .25s,border-color .25s}
+.fact.in:hover{transform:translateX(6px);border-color:rgba(47,163,154,.5)}
+.first{display:flex;gap:12px;align-items:center;margin-top:14px;color:var(--cream)}
+.fbadge{background:var(--teal);color:#0f1a19;font:700 18px Fraunces,serif;padding:6px 14px;border-radius:999px;animation:bob 2.4s ease-in-out infinite}
+.first-chip{font-size:14px;color:var(--teal)}
+.first-chip b{color:var(--teal);font-size:15px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv,.hero *{opacity:1!important;transform:none!important}.fly{display:none}}
+
+@media (max-width:900px){
+  .navlinks a{display:none}
+  .hero .wrap,.split,.about,.price{grid-template-columns:1fr}
+  .hero-photo{height:46vh;order:-1}
+  .grid4{grid-template-columns:1fr 1fr}
+  .grid3,.steps{grid-template-columns:1fr}
+  .price{padding:36px}
+  section{padding:70px 0}
+}
+@media (max-width:520px){.grid4{grid-template-columns:1fr}.note{display:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top"><span class="lnote">♪</span> <span data-i="logo"></span></a>
+    <div class="navlinks">
+      <a href="#about" data-i="nav0"></a>
+      <a href="#videos" data-i="nav5"></a>
+      <a href="#approach" data-i="nav1"></a>
+      <a href="#lessons" data-i="nav2"></a>
+      <a href="#price" data-i="nav4"></a>
+      <div class="lang">
+        <button data-l="pl">PL</button><button data-l="ru">RU</button><button data-l="en">EN</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="flies" aria-hidden="true"></div>
+  <div class="wrap">
+    <div>
+      <div class="hand" data-i="hero_kicker"></div>
+      <h1 data-i="hero_title"></h1>
+      <p class="lead" data-i="hero_lead"></p>
+      <div class="tags">
+        <span class="tag" data-i="tag1"></span>
+        <span class="tag" data-i="tag2"></span>
+        <span class="tag" data-i="tag3"></span>
+      </div>
+      <div class="btns">
+        <a class="btn" href="#contact" data-i="cta"></a>
+        <span class="price-chip"><b>150 zł</b> <span data-i="per_lesson"></span><br><span class="first-chip" data-i="first_chip"></span></span>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <span class="note n1">♪ ♫</span>
+      <span class="note n2" data-i="hero_note"></span>
+      <img src="assets/vlad-hero.webp" alt="Vlad z gitarą">
+      <div class="glow"></div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap split">
+    <div class="photo rv"><img src="assets/vlad-sing.webp" alt="Vlad śpiewa z gitarą"></div>
+    <div>
+      <div class="hand rv" data-i="a_kicker"></div>
+      <h2 class="rv" data-i="a_title"></h2>
+      <p class="lead rv" data-i="a_lead"></p>
+      <div class="facts" style="margin-top:28px">
+        <div class="fact rv"><img class="ficon" src="assets/icons/about1.png" alt=""><span data-i="f1"></span></div>
+        <div class="fact rv"><img class="ficon" src="assets/icons/about2.png" alt=""><span data-i="f2"></span></div>
+        <div class="fact rv"><img class="ficon" src="assets/icons/about3.png" alt=""><span data-i="f3"></span></div>
+        <div class="fact rv"><img class="ficon" src="assets/icons/about5.png" alt=""><span data-i="f5"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="videos" style="padding-top:20px">
+  <div class="wrap">
+    <p class="lead rv" data-i="vd_lead"></p>
+    <div class="vids">
+      <figure class="vcard rv"><video src="assets/videos/billie-jean.mp4" poster="assets/videos/billie-jean.jpg" preload="none" playsinline controls></video><figcaption>Billie Jean</figcaption></figure>
+      <figure class="vcard rv"><video src="assets/videos/just-the-two-of-us.mp4" poster="assets/videos/just-the-two-of-us.jpg" preload="none" playsinline controls></video><figcaption>Just the Two of Us</figcaption></figure>
+      <figure class="vcard rv"><video src="assets/videos/do-i-wanna-know.mp4" poster="assets/videos/do-i-wanna-know.jpg" preload="none" playsinline controls></video><figcaption>Do I Wanna Know</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="approach" style="padding-top:20px">
+  <div class="wrap">
+    <div class="hand rv" data-i="ap_kicker"></div>
+    <h2 class="rv" data-i="ap_title"></h2>
+    <p class="lead rv" data-i="ap_lead"></p>
+    <div class="grid4">
+      <div class="pcard rv"><img class="aicon" src="assets/icons/ap1.png" alt=""><h3 data-i="p1t"></h3><p data-i="p1d"></p></div>
+      <div class="pcard rv"><img class="aicon" src="assets/icons/ap2.png" alt=""><h3 data-i="p2t"></h3><p data-i="p2d"></p></div>
+      <div class="pcard rv"><img class="aicon" src="assets/icons/ap3.png" alt=""><h3 data-i="p5t"></h3><p data-i="p5d"></p></div>
+      <div class="pcard rv"><img class="aicon" src="assets/icons/ap5.png" alt=""><h3 data-i="p3t"></h3><p data-i="p3d"></p></div>
+      <div class="pcard rv"><img class="aicon" src="assets/icons/ap4.png" alt=""><h3 data-i="p6t"></h3><p data-i="p6d"></p></div>
+      <div class="pcard rv"><img class="aicon" src="assets/icons/ap6.png" alt=""><h3 data-i="p4t"></h3><p data-i="p4d"></p></div>
+    </div>
+  </div>
+</section>
+
+<section id="lessons" style="padding-top:20px">
+  <div class="wrap">
+    <div class="hand rv" data-i="ls_kicker"></div>
+    <h2 class="rv" data-i="ls_title"></h2>
+    <div class="grid3">
+      <div class="dcard rv"><div class="dimg"><img src="assets/guitar.webp" alt=""></div><div class="body"><h3 data-i="d1t"></h3><p data-i="d1d"></p></div></div>
+      <div class="dcard rv"><div class="dimg"><img src="assets/ukulele.webp" alt=""></div><div class="body"><h3 data-i="d2t"></h3><p data-i="d2d"></p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="price" style="padding-top:20px">
+  <div class="wrap">
+    <div class="price rv">
+      <div>
+        <div class="hand" data-i="pr_kicker"></div>
+        <div class="big">150<small>zł</small></div>
+        <div class="first rv"><span class="fbadge">100 zł</span><span data-i="pr0"></span></div>
+        <ul><li data-i="pr1"></li><li data-i="pr2"></li><li data-i="pr3"></li></ul>
+      </div>
+      <a class="btn" href="#contact" data-i="cta"></a>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="hand rv" data-i="c_kicker"></div>
+    <h2 class="rv" data-i="c_title"></h2>
+    <p class="lead rv" data-i="c_lead"></p>
+    <div class="cbtns rv">
+      <a class="cbtn" href="https://t.me/Wild_Tuna93" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.7 19.4c-.2 1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.3 13 1.5 11.5c-1-.3-1-1 .2-1.5L20.6 2.8c.9-.3 1.6.2 1.3 1.5z"/></svg><div>Telegram<small>@Wild_Tuna93</small></div></a>
+      <a class="cbtn" href="https://wa.me/48510060076" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg><div>WhatsApp<small>+48 510 060 076</small></div></a>
+      <a class="cbtn" href="tel:+48510060076"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><div><span data-i="call"></span><small>+48 510 060 076</small></div></a>
+    </div>
+  </div>
+</section>
+
+<footer><span data-i="foot"></span> · © 2026</footer>
+
+<script>
+const T={
+pl:{nav5:"Wideo",vd_lead:"Żywy głos i gitara, bez obróbki.",logo:"Warszawa na strunach",nav0:"O mnie",nav1:"Podejście",nav2:"Lekcje",nav4:"Cena",
+hero_kicker:"Muzyka ma sprawiać frajdę",hero_title:"Lekcje muzyki <em>z&nbsp;przyjemnością</em> — u Ciebie w domu",
+hero_lead:"Indywidualne lekcje gitary, ukulele i śpiewu z akompaniamentem. Gramy to, co lubisz, w tempie, które Ci pasuje — i w przyjaznej atmosferze.",
+tag1:"<b>Gitara</b> + śpiew",tag2:"<b>Ukulele</b> + śpiew",tag3:"<b>Dojazd</b> po Warszawie",
+cta:"Zapisz się na lekcję",per_lesson:"/ lekcja z dojazdem",hero_note:"gramy to, co lubisz!",
+a_kicker:"O mnie",a_title:"Cześć, jestem Vlad",
+a_lead:"Jestem muzykiem z Białorusi i nauczycielem gitary i śpiewu. Mam wieloletnie doświadczenie w nauczaniu, na scenie i w studiu, a także w pisaniu piosenek.",
+f1:"Wykształcenie muzyczne",f2:"Wieloletnie doświadczenie w nauczaniu",f3:"Doświadczenie koncertowe, studyjne i w songwritingu",f5:"Uczę po polsku, rosyjsku i angielsku",
+ap_kicker:"Moje podejście",ap_title:"Najważniejsze — nie stracić chęci do grania",
+ap_lead:"Wierzę, że muzyka to przede wszystkim radość. Dlatego każdą lekcję układam pod Ciebie: <span class='hl'>Twoje piosenki, Twoje tempo, Twoje cele.</span>",
+p1t:"Dla frajdy",p1d:"Muzyka ma cieszyć, a nie stresować. Bez ocen, bez presji — grasz, bo lubisz.",
+p2t:"Twoja muzyka",p2d:"Uczymy się utworów, które naprawdę chcesz grać i śpiewać — od pierwszych zajęć.",
+p5t:"Pod Twój głos",p5d:"Dobieramy tonację tak, żeby piosenka wygodnie leżała w Twoim głosie, i przygotowujemy ją od pierwszego akordu do całości.",
+p6t:"Bądźmy szczerzy",p6d:"Żeby nauczyć się grać, trzeba włożyć trochę pracy i regularnie ćwiczyć. To nie dzieje się samo — ale efekty są tego warte.",
+p3t:"Teoria z umiarem",p3d:"Tyle teorii, ile Cię ciekawi. Wszystko wyjaśniam na przykładach z Twoich piosenek.",
+p4t:"Motywacja i komfort",p4d:"W nauce bywa trudno. Zrobię wszystko, żebyś nie tracił motywacji, a lekcje były dla Ciebie komfortowe i ciekawe.",
+ls_kicker:"Czego uczę",ls_title:"Dwie drogi do grania",
+ph1:"Ilustracja: gitara + mikrofon",ph2:"Ilustracja: ukulele + mikrofon",
+d1t:"Gitara + śpiew",d1d:"Gitara ma bogatsze, pełniejsze brzmienie. Zaczynamy od zera albo od miejsca, w którym się zatrzymałeś. Kochasz gitarę? Zapraszam!",
+d2t:"Ukulele + śpiew",d2d:"Najszybszy start w muzyce: pierwsze piosenki już po kilku lekcjach. Łatwe i bez bólu palców, dla dzieci i dorosłych. Instrument jest tańszy od gitary, a z ukulele łatwo potem przejść na gitarę.",
+pr_kicker:"Cena",pr0:"pierwsza lekcja — próbna, w niższej cenie",first_chip:"pierwsza lekcja — <b>100 zł</b>",pr1:"Lekcja indywidualna z dojazdem do domu",pr2:"Cała Warszawa",pr3:"Program dopasowany do Ciebie",
+c_kicker:"Kontakt",c_title:"Zagrajmy razem!",c_lead:"Napisz lub zadzwoń — odpowiem i ustalimy pierwszą lekcję.",call:"Zadzwoń",
+foot:"Lekcje gitary i śpiewu z dojazdem · Warszawa"},
+ru:{nav5:"Видео",vd_lead:"Живой голос и гитара без обработки.",logo:"Варшава на струнах",nav0:"Обо мне",nav1:"Подход",nav2:"Уроки",nav4:"Цена",
+hero_kicker:"Музыка — это в кайф",hero_title:"Занятия музыкой <em>в удовольствие</em> — у тебя дома",
+hero_lead:"Индивидуальные уроки гитары, укулеле и вокала под свой аккомпанемент. Играем то, что тебе нравится, в твоём темпе и в дружеской обстановке.",
+tag1:"<b>Гитара</b> + вокал",tag2:"<b>Укулеле</b> + вокал",tag3:"<b>Выезд</b> по Варшаве",
+cta:"Записаться на урок",per_lesson:"/ урок с выездом",hero_note:"играем то, что нравится!",
+a_kicker:"Обо мне",a_title:"Привет, я Влад",
+a_lead:"Я музыкант из Беларуси, преподаватель гитары и вокала. У меня многолетний опыт — преподавательский, концертный и студийный, а ещё опыт в сонграйтинге.",
+f1:"Музыкальное образование",f2:"Многолетний опыт преподавания",f3:"Концертный, студийный опыт и опыт в сонграйтинге",f5:"Преподаю на польском, русском и английском",
+ap_kicker:"Мой подход",ap_title:"Главное — не потерять желание играть",
+ap_lead:"Я уверен, что музыка — это прежде всего удовольствие. Поэтому каждый урок строю под тебя: <span class='hl'>твои песни, твой темп, твои цели.</span>",
+p1t:"Для кайфа",p1d:"Музыка должна радовать, а не напрягать. Без оценок и давления — играешь, потому что нравится.",
+p2t:"Твоя музыка",p2d:"Разбираем песни, которые ты сам хочешь играть и петь, — с первого занятия.",
+p5t:"Под твой голос",p5d:"Подбираем тональность, чтобы песня удобно ложилась на твой голос, и доводим её от первого аккорда до целого номера.",
+p6t:"Будем честны",p6d:"Чтобы научиться играть, нужно приложить усилия и регулярно заниматься. Само оно не случится — но результат того стоит.",
+p3t:"Теория в меру",p3d:"Теории ровно столько, сколько тебе интересно. Объясняю всё на примерах из твоих песен.",
+p4t:"Мотивация и комфорт",p4d:"В учёбе бывает трудно. Я сделаю всё, чтобы ты не терял мотивацию, а занятия были комфортными и интересными.",
+ls_kicker:"Чему учу",ls_title:"Два пути в музыку",
+ph1:"Иллюстрация: гитара + микрофон",ph2:"Иллюстрация: укулеле + микрофон",
+d1t:"Гитара + вокал",d1d:"У гитары более богатый и полный звук. Начинаем с нуля или с того места, где ты остановился. Любишь гитару — добро пожаловать!",
+d2t:"Укулеле + вокал",d2d:"Самый быстрый старт в музыке: первые песни уже через пару уроков. Легко и без боли в пальцах, подходит детям и взрослым. Инструмент дешевле гитары, а с укулеле потом легко перейти на гитару.",
+pr_kicker:"Цена",pr0:"первое занятие — пробное, по сниженной цене",first_chip:"первое занятие — <b>100 zł</b>",pr1:"Индивидуальный урок с выездом к тебе домой",pr2:"Вся Варшава",pr3:"Программа под тебя",
+c_kicker:"Контакты",c_title:"Давай играть вместе!",c_lead:"Напиши или позвони — отвечу, и договоримся о первом уроке.",call:"Позвонить",
+foot:"Уроки гитары и вокала с выездом · Варшава"},
+en:{nav5:"Videos",vd_lead:"Live voice and guitar, no processing.",logo:"Warsaw on Strings",nav0:"About",nav1:"Approach",nav2:"Lessons",nav4:"Price",
+hero_kicker:"Music should be fun",hero_title:"Music lessons <em>you'll enjoy</em> — at your home",
+hero_lead:"Private guitar, ukulele and singing-with-accompaniment lessons. We play what you love, at your pace, in a friendly atmosphere.",
+tag1:"<b>Guitar</b> + singing",tag2:"<b>Ukulele</b> + singing",tag3:"<b>Home visits</b> in Warsaw",
+cta:"Book a lesson",per_lesson:"/ lesson at your home",hero_note:"we play what you love!",
+a_kicker:"About me",a_title:"Hi, I'm Vlad",
+a_lead:"I'm a musician from Belarus and a guitar and singing teacher, with many years of experience in teaching, on stage and in the studio — plus songwriting.",
+f1:"Music education",f2:"Many years of teaching experience",f3:"Concert, studio and songwriting experience",f5:"I teach in Polish, Russian and English",
+ap_kicker:"My approach",ap_title:"The key is to keep the joy of playing",
+ap_lead:"I believe music is first of all about joy. So every lesson is built around you: <span class='hl'>your songs, your pace, your goals.</span>",
+p1t:"For fun",p1d:"Music should make you happy, not stressed. No grades, no pressure — you play because you love it.",
+p2t:"Your music",p2d:"We learn the songs you actually want to play and sing — from the very first lesson.",
+p5t:"Made for your voice",p5d:"We pick the key so the song sits comfortably in your voice, and take it from the first chord to a full performance.",
+p6t:"Let's be honest",p6d:"Learning to play takes effort and regular practice. It won't happen by itself — but the results are worth it.",
+p3t:"Theory in moderation",p3d:"As much theory as you find interesting. I explain everything using your own songs.",
+p4t:"Motivation & comfort",p4d:"Learning can get tough. I'll do everything to keep you motivated and make the lessons comfortable and interesting.",
+ls_kicker:"What I teach",ls_title:"Two ways into music",
+ph1:"Illustration: guitar + mic",ph2:"Illustration: ukulele + mic",
+d1t:"Guitar + singing",d1d:"The guitar has a richer, fuller sound. We start from scratch or from wherever you stopped. Love the guitar? You're welcome!",
+d2t:"Ukulele + singing",d2d:"The fastest start in music: first songs after just a couple of lessons. Easy and painless for your fingers, great for kids and adults. It's cheaper than a guitar, and switching to guitar later is easy.",
+pr_kicker:"Price",pr0:"your first lesson — a trial at a lower price",first_chip:"first lesson — <b>100 zł</b>",pr1:"Private lesson at your home",pr2:"Anywhere in Warsaw",pr3:"A programme tailored to you",
+c_kicker:"Contact",c_title:"Let's play together!",c_lead:"Message or call me — I'll reply and we'll set up your first lesson.",call:"Call",
+foot:"Guitar & singing lessons at your home · Warsaw"}
+};
+function setLang(l){
+  document.documentElement.lang=l;
+  document.querySelectorAll('[data-i]').forEach(e=>{const v=T[l][e.dataset.i]; if(v!==undefined) e.innerHTML=v;});
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===l));
+  try{localStorage.setItem('lang',l)}catch(e){}
+}
+document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>setLang(b.dataset.l));
+let start='pl';
+try{start=localStorage.getItem('lang')||((navigator.language||'').startsWith('ru')?'ru':(navigator.language||'').startsWith('pl')?'pl':'pl')}catch(e){}
+setLang(start);
+document.querySelectorAll(".vcard video").forEach(v=>v.addEventListener("play",()=>document.querySelectorAll(".vcard video").forEach(o=>{if(o!==v)o.pause()})));
+(function(){const f=document.querySelector('.flies');if(!f)return;const g=['♪','♫','♩','♬'],k=['','t','c'];
+for(let i=0;i<14;i++){const n=document.createElement('span');n.className='fly '+k[i%3];n.textContent=g[i%4];
+n.style.left=(4+Math.random()*92)+'%';n.style.fontSize=(16+Math.random()*20)+'px';
+const d=9+Math.random()*9;n.style.animationDuration=d+'s,'+(2.5+Math.random()*2)+'s';n.style.animationDelay=(-Math.random()*d)+'s,0s';f.appendChild(n)}})();
+document.querySelectorAll('.grid4,.facts,.vids,.grid3').forEach(g=>[...g.children].forEach((c,i)=>c.style.transitionDelay=(i*0.1)+'s'));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);setTimeout(()=>e.target.style.transitionDelay='',1400)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+</script>
+</body>
+</html>
